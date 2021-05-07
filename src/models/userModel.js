@@ -22,4 +22,5 @@ const userSchema = new mongoose.Schema({
   country: {
     type: String,
   },
+  timestamps: true
 });
