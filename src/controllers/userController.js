@@ -58,11 +58,11 @@ exports.getOneUser = (req, res) => {
 exports.updateOneUser = (req, res) => {
   try {
     const { id } = req.params;
-    const { data } = req.params;
+    const { data } = req.body;
 
-    let filter = { _id: id };
+    var filter = { _id: id };
 
-    let userData = {
+    var userData = {
       $set: data,
     };
 
