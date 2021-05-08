@@ -33,7 +33,7 @@
 </p>
 <br>
 
-> ✨  Project document: http://localhost:3000/api-docs
+> ✨  Project Swagger Documentation: http://localhost:3000/api-docs
 
 > ✨  Project URL: http://localhost:3000/api/v1/
 <br>

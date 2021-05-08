@@ -1,10 +1,14 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 const dbSetup = require("./database/dbSetup");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 const routes = require("./routes/userRoutes");
+const logger = require('./config/logger');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
+const port = process.env.PORT;
 
 app.use(express.json());
 
@@ -22,7 +26,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000/api/v1/",
+        url: "https://blooming-temple-22709.herokuapp.com/",
       },
     ],
   },
@@ -38,6 +42,6 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 
 app.listen(port, (err) => {
-  if (err) throw console.log(err);
-  console.log(`App listening on http://localhost:${port}`);
+  if (err) throw logger.error(err.message);
+  logger.log('info', `App listening on http://localhost:${port}`);
 });

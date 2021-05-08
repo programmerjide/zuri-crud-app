@@ -25,12 +25,15 @@ exports.getAllUsers = (req, res) => {
   try {
     User.find({}, (err, users) => {
       if (err) {
+        logger.error(err);
         return res.status(500).json({ message: err });
       } else {
+        logger.info("User created successfully");
         return res.status(200).json(users);
       }
     });
   } catch (err) {
+    logger.error(err);
     return res.status(500).json({ message: err });
   }
 };
@@ -40,16 +43,20 @@ exports.getOneUser = (req, res) => {
   try {
     User.findById(req.params.id, (err, user) => {
       if (err) {
+        logger.error(err);
         return res.status(500).json({ message: err });
       } else if (!user) {
+        logger.error(err);
         return res
           .status(404)
           .json({ message: `No user found for userID: ${req.params.id}` });
       } else {
+        logger.info("User found in the db")
         return res.status(200).json(user);
       }
     });
   } catch (err) {
+    logger.error(err);
     return res.status(500).json({ message: err });
   }
 };
@@ -68,16 +75,20 @@ exports.updateOneUser = (req, res) => {
 
     User.updateOne(filter, userData, (err, user) => {
       if (err) {
+        logger.error(err.message);
         return res.status(500).json({ message: err });
       } else if (!user) {
+        logger.error(err.message.message);
         return res
           .status(404)
           .json({ message: `User found for the userID: ${id}` });
       } else {
+        logger.info("User updated successfully")
         return res.status(200).json({ message: "User updated successfully" });
       }
     });
   } catch (err) {
+    logger.error(err.message);
     return res.status(500).json({ message: err });
   }
 };
@@ -86,8 +97,10 @@ exports.updateOneUser = (req, res) => {
 exports.deleteOneUser = (req, res) => {
     User.findByIdAndDelete(req.params.id, (err, user) => {
       if (err) {
+        logger.error(err.message);
         return res.status(500).json({ message: err });
       } else if (!user) {
+        logger.error(err.message);
         return res
           .status(404)
           .json({ message: `User with id: ${req.param.id} not found` });

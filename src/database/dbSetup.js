@@ -1,11 +1,11 @@
 // SET MONGOOSE CONNECTION STRING
 const mongoose = require("mongoose");
-const connectionString =
-  "mongodb+srv://admin:admin123@cluster0.zkhof.mongodb.net/zurirud?retryWrites=true&w=majority";
+const logger = require('../config/logger');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 module.exports = function () {
-  mongoose.connect(
-    connectionString,
+  mongoose.connect(process.env.MONGODB_URI,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -13,9 +13,9 @@ module.exports = function () {
     },
     (err) => {
       if (err) {
-        console.log(err);
+        logger.error(err.message);
       } else {
-        console.log("database connected successful");
+        logger.info("database connected successful");
       }
     }
   );
