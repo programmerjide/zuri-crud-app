@@ -39,6 +39,66 @@
 > ✨  Project URL: https://blooming-temple-22709.herokuapp.com/api/v1/
 <br>
 
+## API Reference
+
+#### Get all users
+
+```http
+  GET /api/v1/users
+```
+
+#### Get a single user
+
+```http
+  GET /api/v1/user/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+#### Create user
+
+```http
+  POST /api/v1/users
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` |  Id of the user |
+| `name`    | `string` |  Name of the user |
+| `email`   | `string` |  Email of the user |
+| `country` | `string` |  Country of the user |
+
+#### Update a user
+
+```http
+  PUT /api/v1/user/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+```json
+{"data": {
+        "name": "Olajide",
+        "email":"programmerolajide@gmail.com",
+        "country":"Canada"
+    }
+}
+```
+
+#### Delete a user
+
+```http
+  PUT /api/v1/user/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
 ## Install all dependencies
 
 ```sh
