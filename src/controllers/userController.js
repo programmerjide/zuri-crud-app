@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const logger = require('../config/logger');
 
 exports.createNewUser = (req, res) => {
   //create new user
@@ -8,6 +9,7 @@ exports.createNewUser = (req, res) => {
     },
     (err, newUser) => {
       if (err) {
+        logger.error(err);
         return res.status(500).json({ message: err });
       } else {
         //send an object of user to client and a status code

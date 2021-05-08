@@ -15,6 +15,8 @@ app.use(express.json());
 // call the database function
 dbSetup();
 
+app.get('/', (req, res) => res.send('Zuri NodeJS Task for User Management System. This app performs the CRUD operations {GET, POST, PUT, DELETE}'));
+
 // Swagger documentation option guide
 const options = {
   definition: {
@@ -26,7 +28,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://blooming-temple-22709.herokuapp.com/",
+        url: "http://localhost:3000/api/v1/",
       },
     ],
   },
