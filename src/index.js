@@ -28,7 +28,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://blooming-temple-22709.herokuapp.com/",
+        url: "https://blooming-temple-22709.herokuapp.com/api/v1/",
       },
     ],
   },
