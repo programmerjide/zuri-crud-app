@@ -33,9 +33,10 @@
 </p>
 <br>
 
-> ✨  Project Swagger Documentation: http://localhost:3000/api-docs
+## Find the API DOCS here
+> ✨  Project Swagger Documentation: https://blooming-temple-22709.herokuapp.com/api-docs
 
-> ✨  Project URL: http://localhost:3000/api/v1/
+> ✨  Project URL: https://blooming-temple-22709.herokuapp.com/api/v1/
 <br>
 
 ## Install all dependencies
