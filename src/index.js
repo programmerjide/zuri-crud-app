@@ -8,7 +8,7 @@ const logger = require('./config/logger');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
